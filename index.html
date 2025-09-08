@@ -1,30 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio — Mi Tienda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./home.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./index.html">
-        <img src="imagenes/logo.svg" alt="Mi Tienda" class="logo" />
-        <span>Mi Tienda</span>
-      </a>
+    <nav>
+      <div class="nav nav-left">
+        <a class="brand" href="./index.html"><img src="imagenes/logo.svg" alt="Mi Tienda" class="logo" />Mueblería
+          Hermanos Jota</a>
+      </div>
 
-      <nav class="nav nav--center">
-        <a href="./index.html" class="active">Inicio</a>
-        <a href="./productos.html">Productos</a>
-        <a href="./contacto.html">Contacto</a>
-      </nav>
+      <div class="nav nav-center">
+        <ul>
+          <li><a href="./index.html" class="active">Inicio</a></li>
+          <li><a href="./pages/productos.html">Productos</a></li>
+          <li><a href="./contacto.html">Contacto</a></li>
+        </ul>
+      </div>
 
-      <div class="nav-right">
+      <div class="nav nav-right">
         <button class="icon-btn" title="Carrito" onclick="location.href='./carrito.html'">🛒</button>
         <button class="icon-btn" title="Cuenta" onclick="location.href='./perfil.html'">👤</button>
       </div>
-    </div>
+    </nav>
   </header>
 
   <section class="hero">
@@ -53,10 +60,12 @@
 
   <!-- NUEVA SECCIÓN: CTA rápido hacia Contacto -->
   <section class="container contact-cta" aria-label="Contacto rápido">
-    <div class="contact-cta-inner" style="display:flex;align-items:center;justify-content:space-between;gap:18px;padding:36px 0;">
+    <div class="contact-cta-inner"
+      style="display:flex;align-items:center;justify-content:space-between;gap:18px;padding:36px 0;">
       <div>
         <h2 style="margin:0 0 8px;color:var(--brand)">¿Querés contactarnos?</h2>
-        <p class="muted" style="margin:0">Si tenés dudas, consultas o pedidos especiales, escribinos y te respondemos rápido.</p>
+        <p class="muted" style="margin:0">Si tenés dudas, consultas o pedidos especiales, escribinos y te respondemos
+          rápido.</p>
       </div>
       <div>
         <a class="btn" href="./contacto.html">Contactanos</a>
@@ -91,4 +100,5 @@
   <script src="./data.js"></script>
   <script src="./home.js" defer></script>
 </body>
+
 </html>
