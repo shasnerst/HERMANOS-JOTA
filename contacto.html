@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Contacto — Mi Tienda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./contacto.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <img src="imagenes/logo.svg" alt="Mi Tienda" class="logo" />
+        <span>Mi Tienda</span>
+      </a>
+
+      <nav class="nav nav--center">
+        <a href="./index.html">Inicio</a>
+        <a href="./productos.html">Productos</a>
+        <a href="./contacto.html" class="active">Contacto</a>
+      </nav>
+
+      <div class="nav-right">
+        <button class="icon-btn" title="Carrito" onclick="location.href='./carrito.html'">🛒</button>
+        <button class="icon-btn" title="Cuenta" onclick="location.href='./perfil.html'">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="contact-wrap container">
+    <h1>Contáctanos</h1>
+    <p class="muted">Nuestros clientes suelen tener preguntas. Dejanos tus dudas y te respondemos a la brevedad.</p>
+
+    <div id="result" aria-live="polite" class="result"></div>
+
+    <div class="form-card">
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+          <div class="errors hidden" id="err-name" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+          <div class="errors hidden" id="err-email" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" required></textarea>
+          <div class="errors hidden" id="err-message" aria-live="polite"></div>
+        </div>
+
+        <div class="row actions">
+          <button type="submit" class="btn-primary" id="submitBtn">Enviar mensaje</button>
+          <small class="muted">Te responderemos por email.</small>
+        </div>
+      </form>
+    </div>
+
+    <!-- NUEVA SECCIÓN: Nuestras redes sociales -->
+    <section class="socials-wrap" aria-label="Nuestras redes sociales" style="margin-top:18px;">
+      <h3 style="margin:0 0 8px;color:var(--brand)">Nuestras redes sociales</h3>
+      <p class="muted" style="margin:0 0 12px">Seguí nuestras novedades y promociones.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
+        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
+      </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: Comentarios sobre nuestros productos -->
+    <section class="comments-wrap" aria-label="Comentarios sobre nuestros productos" style="margin-top:28px;">
+      <h3 style="margin:0 0 8px;color:var(--brand)">Comentarios sobre nuestros productos</h3>
+      <p class="muted" style="margin:0 0 12px">Lo que dicen nuestros clientes:</p>
+
+      <div class="comments">
+        <article class="comment">
+          <div class="author">María G.</div>
+          <div class="text">Excelente calidad y entrega rápida. Recomendado.</div>
+        </article>
+
+        <article class="comment">
+          <div class="author">Lucas R.</div>
+          <div class="text">Muy conformes con la atención y el producto llegó impecable.</div>
+        </article>
+
+        <article class="comment">
+          <div class="author">Ana P.</div>
+          <div class="text">Buen diseño, se nota la calidad artesanal.</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Mi Tienda — Todos los derechos reservados.</small>
+      <nav class="footer-nav"></nav>
+    </div>
+  </footer>
+
+  <script src="./contacto.js" defer></script>
+</body>
+</html>
