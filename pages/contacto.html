@@ -1,110 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="utf-8" />
-  <title>Contacto — Mi Tienda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — Hermanos Jota</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./index.html">
-        <img src="imagenes/logo.svg" alt="Mi Tienda" class="logo" />
-        <span>Mi Tienda</span>
-      </a>
+    <header>
+        <!-- Menú hamburguesa -->
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
 
-      <nav class="nav nav--center">
-        <a href="./index.html">Inicio</a>
-        <a href="../pages/productos.html">Catalogo</a>
-        <a href="../pages/contacto.html" class="active">Contacto</a>
-      </nav>
+        <!-- Logo -->
+        <a href="" class="logo" aria-label="Ir a la página principal de Hermanos Jota">
+            <img src="logo.svg" alt="Logo de Hermanos Jota">
+        </a>
 
-      <div class="nav-right">
-        <button class="icon-btn" title="Carrito" onclick="location.href='./carrito.html'">🛒</button>
-        <button class="icon-btn" title="Cuenta" onclick="location.href='./perfil.html'">👤</button>
-      </div>
-    </div>
-  </header>
+        <!-- Menú principal (desplegable) -->
+        <nav class="nav-primary" aria-label="Menú principal">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Productos</a></li>
+                <li><a href="" class="is-active">Contacto</a></li>
+            </ul>
+        </nav>
 
-  <main class="contact-wrap container">
-    <h1>Contáctanos</h1>
-    <p class="muted">Nuestros clientes suelen tener preguntas. Dejanos tus dudas y te respondemos a la brevedad.</p>
+        <!-- Acciones de usuario -->
+        <nav class="nav-user-actions" aria-label="Acciones de usuario">
+            <button class="icon-btn" aria-label="Mi cuenta">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Carrito de compras">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"></path>
+                </svg>
+                <span class="badge">0</span>
+            </button>
+        </nav>
+    </header>
 
-    <div id="result" aria-live="polite" class="result"></div>
-
-    <div class="form-card">
-      <form id="contactForm" novalidate>
-        <div class="field">
-          <label for="name">Nombre</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
-          <div class="errors hidden" id="err-name" aria-live="polite"></div>
+    <!-- Panel lateral del carrito -->
+    <aside class="cart-drawer" aria-hidden="true">
+        <div class="cart-drawer__header">
+            <h2>Mi carrito</h2>
+            <button class="cart-drawer__close" aria-label="Cerrar carrito">×</button>
         </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
-          <div class="errors hidden" id="err-email" aria-live="polite"></div>
+        <div class="cart-drawer__body">
+            <p>Tu carrito está vacío.</p>
         </div>
+    </aside>
 
-        <div class="field">
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" required></textarea>
-          <div class="errors hidden" id="err-message" aria-live="polite"></div>
-        </div>
+        <main>
+            <section class="bento-grid">
+            <!-- Formulario de contacto -->
+            <article class="formulario-contacto">
+                <h2>Envíanos un mensaje</h2>
+                <form action="#" method="POST" id="form">
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div>
+                        <label for="asunto">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <span id="email-error" class="form-error"></span>
+                    </div>
+                    <div>
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </article>
 
-        <div class="row actions">
-          <button type="submit" class="btn-primary" id="submitBtn">Enviar mensaje</button>
-          <small class="muted">Te responderemos por email.</small>
-        </div>
-      </form>
-    </div>
+            <!-- Contenedor para el mensaje de éxito -->
+            <div id="success-popup" class="popup hidden" role="alert">
+                <span>Tu mensaje se envió correctamente.</span>
+            </div>
 
-    <!-- NUEVA SECCIÓN: Nuestras redes sociales -->
-    <section class="socials-wrap" aria-label="Nuestras redes sociales" style="margin-top:18px;">
-      <h3 style="margin:0 0 8px;color:var(--brand)">Nuestras redes sociales</h3>
-      <p class="muted" style="margin:0 0 12px">Seguí nuestras novedades y promociones.</p>
-      <div class="socials">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
-        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
-      </div>
-    </section>
 
-    <!-- NUEVA SECCIÓN: Comentarios sobre nuestros productos -->
-    <section class="comments-wrap" aria-label="Comentarios sobre nuestros productos" style="margin-top:28px;">
-      <h3 style="margin:0 0 8px;color:var(--brand)">Comentarios sobre nuestros productos</h3>
-      <p class="muted" style="margin:0 0 12px">Lo que dicen nuestros clientes:</p>
+            <!-- Nuestro taller -->
+            <article class="taller">
+                <h3>Nuestro Taller</h3>
+            </article>
 
-      <div class="comments">
-        <article class="comment">
-          <div class="author">María G.</div>
-          <div class="text">Excelente calidad y entrega rápida. Recomendado.</div>
-        </article>
+            <!-- Información de contacto -->
+            <article class="informacion-contacto">
+                <h3>Contacto y Créditos</h3>
+                <address>
+                    <strong>Showroom</strong><br>
+                    Av. Corrientes 1234<br>
+                    Buenos Aires, Argentina
+                </address>
+                <div>
+                    <strong>Horarios</strong><br>
+                    Lun - Vie: 9:00 - 18:00<br>
+                    Sáb: 10:00 - 14:00
+                </div>
+            </article>
 
-        <article class="comment">
-          <div class="author">Lucas R.</div>
-          <div class="text">Muy conformes con la atención y el producto llegó impecable.</div>
-        </article>
+            <!-- Contacto digital -->
+            <article class="contacto-digital">
+                <h3>Contacto Digital</h3>
+                <ul>
+                    <li><a href="mailto:generalinfo@hermanosjota.com.ar">generalinfo@hermanosjota.com.ar</a></li>
+                    <li><a href="mailto:ventas@hermanosjota.com.ar">ventas@hermanosjota.com.ar</a></li>
+                    <li><a href="https://instagram.com/hermanosjota_ba" target="_blank">@hermanosjota_ba</a></li>
+                    <li><a href="https://wa.me/5411456789000" target="_blank">+54 11 4567-8900</a></li>
+                </ul>
+            </article>
 
-        <article class="comment">
-          <div class="author">Ana P.</div>
-          <div class="text">Buen diseño, se nota la calidad artesanal.</div>
-        </article>
-      </div>
-    </section>
-  </main>
+            <!-- Marca -->
+            <article class="marca">
+                <h3>HJ</h3>
+                <p>Artesanía</p>
+            </article>
+        </section>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© <span id="year"></span> Mi Tienda — Todos los derechos reservados.</small>
-      <nav class="footer-nav"></nav>
-    </div>
-  </footer>
-
-  <script src="./contacto.js" defer></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
