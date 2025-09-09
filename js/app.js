@@ -1,7 +1,4 @@
-// Formato de moneda para ARS
-const money = n => new Intl.NumberFormat("es-AR", {
-  style: "currency", currency: "ARS", maximumFractionDigits: 0
-}).format(n);
+// app.js - Lógica para el catálogo de productos
 
 // Agrupa productos por categoría
 function groupByCategory(items){
@@ -13,7 +10,7 @@ function groupByCategory(items){
   return g;
 }
 
-// Crea una tarjeta de producto (imagen + botón)
+// Crea una tarjeta de producto (imagen + botón), Lo que hace es crear los elementos HTML necesarios para mostrar un producto en el catálogo.
 function createCard(p){
   const card = document.createElement("article");
   card.className = "card";
@@ -33,7 +30,8 @@ function createCard(p){
 
   const overlay = document.createElement("a");
   overlay.className = "btn-overlay";
-  overlay.href = `producto.html?id=${encodeURIComponent(p.id)}`;
+  overlay.href = p.perfil;
+  //overlay.href = `./pages/productos.html?id=${encodeURIComponent(p.id)}`;
   overlay.setAttribute("aria-label", `Ver ${p.nombre || "producto"}`);
   overlay.textContent = "Ver";
 

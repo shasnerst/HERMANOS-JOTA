@@ -5,22 +5,53 @@
   <meta charset="UTF-8">
   <title>Detalle de Producto - Hermanos Jota</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../../styles/styles_producto.css">
 </head>
 
 <body>
-  <!-- Encabezado -->
-  <header class="page layout-cover">
-    <div class="logo-container">
-      <img src="imagenes/logo.svg" alt="Logo Hermanos Jota" class="logo-svg" />
-      <h1 class="logo-text">Hermanos Jota</h1>
-    </div>
-  </header>
+    <header>
+        <!-- Menú hamburguesa -->
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+
+        <!-- Logo -->
+        <a href="" class="logo" aria-label="Ir a la página principal de Hermanos Jota">
+            <img src="logo.svg" alt="Logo de Hermanos Jota">
+        </a>
+
+        <!-- Menú principal (desplegable) -->
+        <nav class="nav-primary" aria-label="Menú principal">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Productos</a></li>
+                <li><a href="" class="is-active">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Acciones de usuario -->
+        <nav class="nav-user-actions" aria-label="Acciones de usuario">
+            <button class="icon-btn" aria-label="Mi cuenta">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Carrito de compras">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"></path>
+                </svg>
+                <span class="badge">0</span>
+            </button>
+        </nav>
+    </header>
+
 
   <!-- Detalle del Producto -->
   <section class="page layout-leftpic" id="detalle-producto">
     <div class="product-img">
-      <img src="imagenes/mesa_noche_aconcagua.png" alt="Mesa de Noche Aconcagua">
+      <img src="../../imagenes/mesa_noche_aconcagua.png" alt="Mesa de Noche Aconcagua">
     </div>
     <div class="product-info">
       <h2>Mesa de Noche Aconcagua</h2>
