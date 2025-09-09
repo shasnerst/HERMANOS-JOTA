@@ -1,78 +1,95 @@
-// Footer year
-// Footer year
-(function(){ const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
+document.addEventListener("DOMContentLoaded", () => {
+    // === MENÚ HAMBURGUESA ===
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navPrimary = document.querySelector(".nav-primary");
 
-(function(){
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  const btn = document.getElementById('submitBtn');
-  const result = document.getElementById('result');
-
-  const nameEl = document.getElementById('name');
-  const emailEl = document.getElementById('email');
-  const msgEl = document.getElementById('message');
-
-  const errName = document.getElementById('err-name');
-  const errEmail = document.getElementById('err-email');
-  const errMsg = document.getElementById('err-message');
-
-  function showError(el, msg){
-    el.textContent = msg;
-    el.classList.remove('hidden');
-  }
-  function clearError(el){
-    el.textContent = '';
-    el.classList.add('hidden');
-  }
-
-  function validate(){
-    let ok = true;
-    clearError(errName); clearError(errEmail); clearError(errMsg);
-
-    const name = nameEl.value.trim();
-    if (name.length < 2){
-      showError(errName, 'Ingresá tu nombre (mínimo 2 caracteres).');
-      ok = false;
-    }
-
-    const email = emailEl.value.trim();
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRe.test(email)){
-      showError(errEmail, 'Ingresá un email válido.');
-      ok = false;
-    }
-
-    const msg = msgEl.value.trim();
-    if (msg.length < 10){
-      showError(errMsg, 'El mensaje debe tener al menos 10 caracteres.');
-      ok = false;
-    }
-
-    return ok;
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if (!validate()) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
-
-    // Simular envío (si tu backend está listo reemplazar por fetch)
-    setTimeout(() => {
-      result.innerHTML = '<div class="success" role="status">Gracias — tu mensaje fue enviado correctamente. Te responderemos pronto.</div>';
-      form.reset();
-      btn.disabled = false;
-      btn.textContent = 'Enviar mensaje';
-      result.scrollIntoView({behavior:'smooth', block:'center'});
-    }, 600);
-  });
-
-  // validación en tiempo real
-  nameEl.addEventListener('input', () => { if (nameEl.value.trim().length >= 2) clearError(errName); });
-  emailEl.addEventListener('input', () => { const re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/; if(re.test(emailEl.value.trim())) clearError(errEmail); });
-    msgEl.addEventListener('input', () => {
-      if (msgEl.value.trim().length >= 10) clearError(errMsg);
+    menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        menuToggle.classList.toggle("open");
+        navPrimary.classList.toggle("active");
     });
-  });
+
+    // === CARRITO LATERAL ===
+    const cartDrawer = document.querySelector(".cart-drawer");
+    const cartButton = document.querySelector(".icon-btn[aria-label='Carrito de compras']");
+    const closeCartButton = document.querySelector(".cart-drawer__close");
+
+    cartButton.addEventListener("click", () => {
+        cartDrawer.classList.add("open");
+        cartDrawer.setAttribute("aria-hidden", "false");
+    });
+
+    closeCartButton.addEventListener("click", () => {
+        cartDrawer.classList.remove("open");
+        cartDrawer.setAttribute("aria-hidden", "true");
+    });
+
+    // === FORMULARIO DE CONTACTO ===
+    const form = document.getElementById("form");
+    const submitButton = form.querySelector("button[type='submit']");
+    const emailField = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+
+    const popup = document.getElementById("success-popup");
+    const closeBtn = popup.querySelector(".popup-close");
+
+    // Regex personalizada para validar emails
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Función para validar en tiempo real
+    function checkFormValidity() {
+        const isFormValid = form.checkValidity();
+        const isEmailValid = emailRegex.test(emailField.value);
+
+        // Mostrar mensaje de error personalizado si el email no cumple con el regex
+        if (emailField.value && !isEmailValid) {
+            emailError.textContent = "Por favor ingresa un correo electrónico válido.";
+            emailField.classList.add("input-error");
+        } else {
+            emailError.textContent = "";
+            emailField.classList.remove("input-error");
+        }
+
+        submitButton.disabled = !(isFormValid && isEmailValid);
+    }
+
+    // Validación en tiempo real
+    form.addEventListener("input", checkFormValidity);
+    form.addEventListener("change", checkFormValidity);
+
+    // Envío del formulario
+    form.addEventListener("submit", function (event) {
+        if (!form.reportValidity()) {
+            return; // Deja que el navegador muestre las validaciones nativas
+        }
+
+        event.preventDefault(); // Todo es válido, prevenimos envío real
+
+        // Verificación final del email con regex
+        if (emailRegex.test(emailField.value)) {
+            // Mostrar popup
+            popup.classList.remove("hidden");
+
+            // Resetear formulario y estado del botón
+            form.reset();
+            submitButton.disabled = true;
+            emailError.textContent = "";
+            emailField.classList.remove("input-error");
+
+            // Cierre automático del popup
+            setTimeout(() => {
+                popup.classList.add("hidden");
+            }, 5000);
+        } else {
+            // Mostrar error en caso extremo
+            emailError.textContent = "Por favor ingresa un correo electrónico válido.";
+            emailField.classList.add("input-error");
+        }
+    });
+
+    // Cierre manual del popup
+    closeBtn.addEventListener("click", () => {
+        popup.classList.add("hidden");
+    });
+});
