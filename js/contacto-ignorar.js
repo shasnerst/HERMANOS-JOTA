@@ -1,6 +1,5 @@
 // Footer year
 // Footer year
-
 (function(){ const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); })();
 
 (function(){
@@ -76,4 +75,4 @@
     msgEl.addEventListener('input', () => {
       if (msgEl.value.trim().length >= 10) clearError(errMsg);
     });
-  });
+});
