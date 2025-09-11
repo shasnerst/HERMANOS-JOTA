@@ -5,12 +5,15 @@
     text-decoration: none;
     list-style: none;
     font-family: Inter;
+    border: none;
+    background-color: transparent;
+    color: black;
 }
 
 /* fuentes */
 
-.playfair-display {
-    font-family: "Playfair Display", serif;
+.playfair {
+    font-family: "Playfair", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
@@ -23,17 +26,26 @@
     font-style: normal;
 }
 
-.inter--semibold {
+.inter-semibold {
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
 
-.inter--bold {
+.inter-bold {
     font-family: "Inter", sans-serif;
     font-weight: 700;
 }
 
-/* fin fuentes  */
+h1,
+h2 {
+    font-family: "Playfair", serif;
+    color: var(--siena);
+    font-weight: 900;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+}
 
 
 /* Variables de color y valores reutilizables */
@@ -55,8 +67,106 @@
 /* HEADER */
 
 header {
-    margin-bottom: 18px;
-    background-color: #87A96B;
+    background-color: var(--bg);
+
+    width: 100%;
+
+}
+
+nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    font-weight: bold;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .04);
+    position: sticky;
+    top: 0;
+    right: 0;
+
+}
+
+.active {
+    border-bottom: solid var(--siena) 4px;
+
+
+}
+
+.nav-left a {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.nav-center ul {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-center ul li {
+    margin-right: 1rem;
+}
+
+.nav-center ul li a:hover {
+    color: var(--siena);
+}
+
+.nav-center ul li:last-child {
+    margin-right: 0;
+}
+
+button i {
+    color: var(--siena);
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+i {
+    font-size: x-large;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: var(--siena);
+    padding: 2rem 3rem;
+}
+
+footer * {
+    color: white;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .footer-ubicacion {
+    margin-bottom: 2rem;
+}
+
+footer .footer-derechos {
+    margin-top: 2rem;
+    font-weight: 200;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+footer iframe {
+    width: 40vw;
+}
+
+
+/* MAIN */
+
+main {
+    padding: 3rem;
+    max-width: 80vw;
+    margin: 0 auto;
 
 }
