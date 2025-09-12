@@ -5,12 +5,15 @@
     text-decoration: none;
     list-style: none;
     font-family: Inter;
+    border: none;
+    background-color: transparent;
+    color: black;
 }
 
 /* fuentes */
 
-.playfair-display {
-    font-family: "Playfair Display", serif;
+.playfair {
+    font-family: "Playfair", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
@@ -23,17 +26,26 @@
     font-style: normal;
 }
 
-.inter--semibold {
+.inter-semibold {
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
 
-.inter--bold {
+.inter-bold {
     font-family: "Inter", sans-serif;
     font-weight: 700;
 }
 
-/* fin fuentes  */
+h1,
+h2 {
+    font-family: "Playfair", serif;
+    color: var(--siena);
+    font-weight: 900;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+}
 
 
 /* Variables de color y valores reutilizables */
@@ -55,8 +67,249 @@
 /* HEADER */
 
 header {
-    margin-bottom: 18px;
-    background-color: #87A96B;
+    background-color: var(--bg);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    right: 0;
+
+}
+
+nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    font-weight: bold;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .04);
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.active {
+    border-bottom: solid var(--siena) 4px;
+}
+
+.nav-left a {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.nav-center ul {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-center ul li {
+    margin-right: 1rem;
+}
+
+.nav-center ul li a:hover {
+    color: var(--siena);
+}
+
+.nav-center ul li:last-child {
+    margin-right: 0;
+}
+
+
+.nav-right {
+    display: flex;
+}
+
+button i {
+    color: var(--siena);
+    cursor: pointer;
+}
+
+button i:last-child {
+    margin-left: 25px;
+}
+
+i {
+    font-size: x-large;
+}
+
+
+button {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-active {
+    background-color: var(--siena);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    padding: 0.5rem;
+    border-radius: 5px;
+
+}
+
+.cart-active * {
+    color: white;
+}
+
+.cart-counter {
+    font-weight: 800;
+}
+
+/* .counter-0 {
+    display: none;
+} */
+
+/* FOOTER */
+
+footer {
+    background-color: var(--siena);
+    padding: 2rem 3rem;
+}
+
+footer * {
+    color: white;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .footer-ubicacion {
+    margin-bottom: 2rem;
+}
+
+footer .footer-derechos {
+    margin-top: 2rem;
+    font-weight: 200;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+footer iframe {
+    width: 40vw;
+}
+
+
+/* MAIN */
+
+main {
+    padding: 3rem 0;
+    max-width: 80vw;
+    margin: 0 auto;
+
+}
+
+
+/* MEDIA QUERIES */
+
+
+@media only screen and (min-aspect-ratio: 0.3) and (max-aspect-ratio: 4/3) {
+
+
+    nav {
+        justify-content: center;
+        height: 90px;
+    }
+
+    .nav-center,
+    .nav-right {
+        display: none;
+    }
+
+    .mobile-nav {
+        padding: 0.75rem;
+        height: 50px;
+        bottom: 2rem;
+        width: 70%;
+        max-width: 500px;
+        display: flex;
+        background-color: white;
+        border-radius: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: fixed;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
+        justify-content: space-around;
+        z-index: 2;
+    }
+
+    .mobile-nav button * {
+        color: var(--siena);
+        font-size: x-large;
+    }
+
+    .mobile-nav button i {
+        margin: 0;
+    }
+
+    .mobile-nav .cart-counter {
+        font-size: large;
+    }
+
+    .mobile-nav .cart-active {
+        padding: 0.2rem 1rem;
+
+    }
+
+    .mobile-nav .cart-active * {
+        color: white;
+    }
+
+    footer {
+        padding-bottom: 7rem;
+    }
+
+    footer .footer-main {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "direc redes"
+            "mapa mapa";
+        gap: 2rem;
+    }
+
+    .footer-left {
+        grid-area: direc;
+    }
+
+    .footer-right {
+        grid-area: redes;
+        flex-flow: column;
+        justify-content: start;
+        align-items: end;
+    }
+
+    .footer-right i {
+        font-size: xx-large;
+    }
+
+    .footer-center {
+        grid-area: mapa;
+        text-align: center;
+    }
+
+    .footer-center iframe {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    /* MAIN */
+
+    main {
+        padding: 1rem 0;
+        max-width: 90vw;
+        margin: 0 auto;
+    }
 
 }

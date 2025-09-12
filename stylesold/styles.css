@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: Inter;
+}
+
+/* fuentes */
+
+.playfair-display {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.inter {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.inter--semibold {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.inter--bold {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+/* fin fuentes  */
+
+
+/* Variables de color y valores reutilizables */
+:root {
+    --siena: #A0522D;
+    --salvia: #87A96B;
+    --alabastro: #F5E6D3;
+    --oro: #D4A437;
+    --rosa: #C47A6D;
+
+    --radius: 16px;
+    --bg: #ffffff;
+    --ink: #2B211D;
+    --muted: #6B554C;
+    --card-border: #E6D8C8;
+}
+
+
+/* HEADER */
+
+header {
+    margin-bottom: 18px;
+    background-color: #87A96B;
+    display: flex;
+
+}
