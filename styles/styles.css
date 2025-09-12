@@ -240,8 +240,6 @@ main {
         box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
         justify-content: space-around;
         z-index: 2;
-
-
     }
 
     .mobile-nav button * {
