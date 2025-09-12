@@ -232,7 +232,7 @@ main {
         width: 70%;
         max-width: 500px;
         display: flex;
-        background-color: var(--ink);
+        background-color: white;
         border-radius: 20px;
         left: 50%;
         transform: translateX(-50%);
@@ -241,13 +241,12 @@ main {
         justify-content: space-around;
         z-index: 2;
 
+
     }
 
     .mobile-nav button * {
-        color: white;
+        color: var(--siena);
         font-size: x-large;
-
-
     }
 
     .mobile-nav button i {
@@ -259,13 +258,12 @@ main {
     }
 
     .mobile-nav .cart-active {
-        background-color: white;
         padding: 0.2rem 1rem;
 
     }
 
     .mobile-nav .cart-active * {
-        color: var(--siena);
+        color: white;
     }
 
     footer {
